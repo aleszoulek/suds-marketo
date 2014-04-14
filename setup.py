@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='suds_marketo',
-    version='0.1.4',
+    version='0.1.5',
     author=u'Arthur Rio',
     author_email='arthur@punchtab.com',
     packages=find_packages(),
