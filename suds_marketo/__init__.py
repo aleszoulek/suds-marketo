@@ -38,7 +38,7 @@ class Client(object):
     """Consolidated API for consuming web services"""
 
 
-    def __init__(self, soap_endpoint, user_id, encryption_key):
+    def __init__(self, soap_endpoint, user_id, encryption_key, **kwargs):
         """
         Instantiate the suds client and add the SOAP types and methods to the list of attributes
         How to get the Marketo SOAP parameters: See page 4 of the Marketo SOAP Api doc.
@@ -48,7 +48,7 @@ class Client(object):
         self.encryption_key = encryption_key
 
         self.suds_client = SudsClient(Client.MARKETO_WSDL,
-                location=soap_endpoint)
+                location=soap_endpoint, **kwargs)
         # Make easy the access to the types and methods
         for suds_type in self.suds_client.sd[0].types:
             self.suds_types.append(suds_type[0].name)
